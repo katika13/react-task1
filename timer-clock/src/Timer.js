@@ -32,6 +32,7 @@ class Timer extends Component {
 
   resetTimer() {
     this.setState({ time: 0 });
+	clearInterval(this.timerID);
   }
 
   isPaused() {
