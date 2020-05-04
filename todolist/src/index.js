@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Timer from './Timer';
+import './App.scss';
+import AddToDo from './components/AddToDo'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Timer />
+    <AddToDo />
   </React.StrictMode>,
   document.getElementById('root')
 );
