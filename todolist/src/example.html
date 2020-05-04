@@ -1,0 +1,47 @@
+<div className="ToDoApp">
+	<form className="AddForm">
+		<input type="text" className="TextInput TextInput--Full" placeholder="Введите описание задачи...">
+		<button className="AddForm-Button" type="submit">Создать</button>
+	</form>
+	<div className="ToDoList ps">
+		<div>
+			<div className="ToDoList-Empty">Список пуст</div>
+			<div className="ToDoList-Item" style="">
+				<div className="Todo">
+					<label className="Control Control--Type-checkbox Todo-StatusIcon">
+						<input type="checkbox" className="Control-Input" value="on">
+						<span className="Control-Icon"></span>
+					</label>
+					<div className="Todo-Text">test</div>
+					<button className="Todo-Delete" title="Удалить задачу" type="button"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="Filter">
+		<div className="FilterItem">
+			<label className="Control Control--Type-radio">
+				<input type="radio" className="Control-Input" name="todo-filter" value="ALL">
+					<span className="Control-Icon"></span>
+					<span className="Control-Text">Все</span>
+			</label>
+			<div className="FilterItem-Count">0</div>
+		</div>
+		<div className="FilterItem">
+			<label className="Control Control--Type-radio">
+				<input type="radio" className="Control-Input" name="todo-filter" value="COMPLETED">
+				<span className="Control-Icon"></span>
+				<span className="Control-Text">Завершенные</span>
+			</label>
+			<div className="FilterItem-Count">0</div>
+		</div>
+		<div className="FilterItem">
+			<label className="Control Control--Type-radio">
+				<input type="radio" className="Control-Input" name="todo-filter" value="ACTIVE">
+				<span className="Control-Icon"></span>
+				<span className="Control-Text">В процессе</span>
+			</label>
+			<div className="FilterItem-Count">0</div>
+		</div>
+	</div>
+</div>

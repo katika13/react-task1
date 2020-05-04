@@ -1,0 +1,40 @@
+.TextInput {
+    box-sizing: border-box;
+    height: 50px;
+    width: 75%;
+    padding: 10px;
+}
+.AddForm {
+    display: flex;
+    margin: 30px 10px;
+}
+.Todo {
+    display: flex;
+    padding: 15px 0;
+    width: 100%;
+}
+.ToDoList {
+    margin: 30px 10px;
+    padding: 10px;
+    border: 1px solid #c9c9c9;
+}
+.Todo-Text {
+    padding: 0 10px;
+    width: 75%;
+}
+.Filter {
+    display: flex;
+    margin: 30px 10px;
+    width: 100%;
+}
+.FilterItem {
+    margin-right: 20px;
+    display: flex;
+}
+.Control-Text {
+    padding: 0 10px;
+}
+.ToDoApp {
+    max-width: 500px;
+    margin: 0 auto;
+}
