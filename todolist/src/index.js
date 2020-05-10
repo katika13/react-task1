@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.scss';
-import AddToDo from './components/AddToDo'
+import App from './App';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AddToDo />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Router>
+            <App />
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

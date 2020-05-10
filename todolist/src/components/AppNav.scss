@@ -1,0 +1,14 @@
+.app-nav {
+    display: flex;
+	padding-left: 0;
+
+    li {
+        list-style: none;
+        margin-right: 15px;
+        font-weight: bold;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,26 +1,116 @@
-import React from 'react';
-import Filter from './components/Filter';
+import React, { Component } from 'react';
+
 import AddToDo from './components/AddToDo';
+import AppNav from './components/AppNav';
+import FilterItem from './components/FilterItem';
 import ToDoList from './components/ToDoList';
+
 import './App.scss';
 
-function ToDoApp() {
-  return (
-    <>
-    <div className="ToDoApp">
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			tododata: localStorage.getItem('tododata') ? JSON.parse(localStorage.getItem('tododata')) : [],
+			filter: 'all',
+			term: ''
+		};
+		this.deleteItem = this.deleteItem.bind(this)
+		this.addItem = this.addItem.bind(this)
+		this.onToggleFinished = this.onToggleFinished.bind(this)
+		this.onFilterSelect = this.onFilterSelect.bind(this)
+		this.searchPost = this.searchPost.bind(this)
 
-        //component AddToDo
-        <AddToDo />
+	}
 
-        //component ToDoList
-        <ToDoList />
+	deleteItem(id){
+		this.setState(({tododata})=>{
+			const index = tododata.findIndex(elem => elem.id === id)
 
-        //component Filter
-        <Filter />
+			const newArr = [...tododata.slice(0, index), ...tododata.slice(index + 1)];
+			localStorage.setItem('tododata', JSON.stringify(newArr));
 
-    </div>
-    </>
-  );
+			return {
+				tododata: JSON.parse(localStorage.getItem('tododata')),
+			}
+		});
+	}
+
+	addItem(body){
+		const newItem = {
+			label: body,
+			finished: false,
+			id: Date.now(),
+		}
+
+		this.setState(({tododata}) => {
+			const newArr = [...tododata, newItem];
+			localStorage.setItem('tododata', JSON.stringify(newArr));
+
+			return{
+				tododata: JSON.parse(localStorage.getItem('tododata')),
+			}
+		});
+	}
+
+	onToggleFinished(id) {
+		this.setState(({tododata}) => {
+			const index = tododata.findIndex(elem => elem.id === id);
+
+			const oldItem = tododata[index];
+			const newItem = {...oldItem, finished: !oldItem.finished}
+
+			const newArr = [...tododata.slice(0, index), newItem, ...tododata.slice(index + 1)];
+			localStorage.setItem('tododata', JSON.stringify(newArr));
+
+			return {
+				tododata: JSON.parse(localStorage.getItem('tododata')),
+			}
+		});
+	}
+
+	searchPost(items, term) {
+		if(term.length === 0) {
+			return items
+		}
+		return items.filter((item) => {
+			return item.label.indexOf(term) > -1
+		});
+	}
+
+	filterToDoList(items, filter){
+		if(filter === 'done') {
+			return items.filter(item => item.finished)
+		}
+		else if( filter === 'todo') {
+			return items.filter(item => !item.finished)
+		}
+		return items
+	}
+
+	onFilterSelect(filter) {
+		this.setState({filter})
+	}
+
+	render() {
+		const {tododata, filter} = this.state;
+
+		const searchResults = this.filterToDoList(tododata, filter)
+
+		return (
+			<div className="app">
+				<AppNav />
+				<AddToDo
+					onAdd={this.addItem}/>
+				<ToDoList
+					todoitems={searchResults}
+					onToggleFinished={this.onToggleFinished}
+					onDelete={this.deleteItem}/>
+				<FilterItem
+					filter={filter}
+					onFilterSelect={this.onFilterSelect}
+					/>
+			</div>
+		)
+	}
 }
-
-export default ToDoApp;

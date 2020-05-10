@@ -1,0 +1,22 @@
+.add-panel {
+	margin: 20px 0;
+
+	input {
+		margin-right: 5px;
+	}
+	button {
+		padding: 0 15px;
+		font-size: 20px;
+	}
+	.btn-additem {
+		border: 2px solid green;
+		background-color: green;
+		color: white;
+		border-radius: 3px 0 0 3px;
+	}
+	.btn-reset {
+		border: 2px solid #b6b6b6;
+		color: #b6b6b6;
+		border-radius: 0 3px 3px 0;
+	}
+}
