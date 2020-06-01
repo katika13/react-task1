@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import AddToDo from './components/AddToDo';
 import AppNav from './components/AppNav';
 import FilterItem from './components/FilterItem';
 import ToDoList from './components/ToDoList';
+
 
 import './App.scss';
 
@@ -36,11 +37,12 @@ export default class App extends Component {
 		});
 	}
 
-	addItem(body){
+	addItem(body, date){
 		const newItem = {
 			label: body,
 			finished: false,
 			id: Date.now(),
+			dueDate: date
 		}
 
 		this.setState(({tododata}) => {
@@ -98,19 +100,20 @@ export default class App extends Component {
 		const searchResults = this.filterToDoList(tododata, filter)
 
 		return (
+			<>
 			<div className="app">
-				<AppNav />
 				<AddToDo
 					onAdd={this.addItem}/>
-				<ToDoList
-					todoitems={searchResults}
-					onToggleFinished={this.onToggleFinished}
-					onDelete={this.deleteItem}/>
 				<FilterItem
 					filter={filter}
 					onFilterSelect={this.onFilterSelect}
 					/>
+				<ToDoList
+					todoitems={searchResults}
+					onToggleFinished={this.onToggleFinished}
+					onDelete={this.deleteItem}/>
 			</div>
+			</>
 		)
 	}
 }

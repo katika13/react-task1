@@ -1,0 +1,66 @@
+.todo-list-item {
+	list-style: none;
+
+	&__label{
+		padding: 15px;
+		display: flex;
+    	justify-content: space-between;
+
+		input {
+			margin-right: 15px;
+		}
+
+		&.checked {
+			background: #efefef;
+
+			label {
+				text-decoration: line-through;
+				color: #b6b6b6;
+			}
+		}
+		.btn-complete {
+		    color: #21bf73;
+		    font-size: 35px;
+		    background-color: #ffffff;
+		    border-radius: 50%;
+		    padding: 0;
+		    width: 30px;
+		    height: 30px;
+		    margin-right: 10px;
+		    border: 0;
+
+			.fa {
+				display: block;
+				margin-top: -2px;
+			}
+		}
+		.btn-trash {
+			color: #b6b6b6;
+		    font-size: 35px;
+		    background-color: transparent;
+		    border: 0;
+
+			.fa {
+				display: block;
+				margin-top: -2px;
+			}
+		}
+
+		label {
+			cursor: pointer;
+			margin: 0;
+			display: flex;
+
+			p {
+				margin: 0;
+				max-width: 450px;
+			}
+
+			.todo-duedate {
+				font-style: italic;
+				font-weight: 300;
+			}
+		}
+	}
+
+}

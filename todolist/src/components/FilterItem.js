@@ -6,9 +6,9 @@ export default class FilterItem extends Component {
 	constructor(props){
 		super(props);
 		this.buttons = [
-			{name: 'all', label: 'Все'},
-			{name: 'done', label: 'Готово'},
-			{name: 'todo', label: 'Сделать'},
+			{name: 'all', label: 'All'},
+			{name: 'done', label: 'Completed'},
+			{name: 'todo', label: 'To do'},
 		]
 	}
 
@@ -17,6 +17,7 @@ export default class FilterItem extends Component {
 			const {filter, onFilterSelect} = this.props;
 			const active = filter === name;
 			const status = active ? "checked" : ''
+
 			return (
 				<label key={name} id={name}>
 					<input

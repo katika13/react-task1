@@ -1,22 +1,32 @@
 .add-panel {
-	margin: 20px 0;
+	margin: 20px 0 60px;
+	justify-content: space-around;
 
 	input {
 		margin-right: 5px;
+		border: 0
 	}
 	button {
-		padding: 0 15px;
-		font-size: 20px;
+		padding: 0 5px;
+		font-size: 30px;
 	}
 	.btn-additem {
-		border: 2px solid green;
-		background-color: green;
-		color: white;
-		border-radius: 3px 0 0 3px;
+		border: 0;
+		color: #00541a;
 	}
 	.btn-reset {
-		border: 2px solid #b6b6b6;
+		border: 0;
 		color: #b6b6b6;
-		border-radius: 0 3px 3px 0;
 	}
+	.add-new-post {
+		display: flex;
+		border-bottom: 1px solid #b6b6b6;
+		box-sizing: border-box;
+		padding: 10px;
+	}
+}
+
+.react-datepicker-wrapper input {
+		text-align: right;
+		line-height: 36px;
 }

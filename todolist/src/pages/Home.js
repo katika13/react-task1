@@ -1,7 +1,13 @@
-import React from 'react'
+import React from 'react';
+import TodoApp from '../components/TodoApp.js';
 
-const Home = ()=> {
-	return <h1>Your to do list</h1>
+const Home = () => {
+  return (
+    <React.Fragment>
+      <h1>Personal Busy Planner</h1>
+      <TodoApp />
+    </React.Fragment>
+  )
 }
 
 export default Home
